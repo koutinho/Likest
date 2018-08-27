@@ -16,7 +16,8 @@ namespace ConsoleTest
 
             var loadObservable = api.Load;
 
-            var subscription = loadObservable.Subscribe((t) => Console.WriteLine($"Current: {t.current}. Slowdown: {t.slowdown}"));
+            var subscription = loadObservable.Subscribe((t) => Console.WriteLine($"Current: {t.current}. Slowdown: {t.slowdown}"),
+                ex => Console.WriteLine(ex.Message));
 
             Console.ReadLine();
 
