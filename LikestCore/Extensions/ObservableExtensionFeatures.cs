@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +33,22 @@ namespace Extensions.LikestCore
 
                 return Disposable.Create(() => subscription.Dispose());
             });
+        }
+
+        public static IObservable<T> makeHot<T>(this IObservable<T> cold)
+        {
+            bool subscribed = false;
+            var subject = new Subject<T>();
+            
+            return Observable.Create<T>(o =>
+                {
+                    if (!subscribed)
+                    {
+                        cold.Subscribe(subject);
+                        subscribed = true;
+                    }
+                    return subject.Subscribe(o);
+                });
         }
     }
 }
