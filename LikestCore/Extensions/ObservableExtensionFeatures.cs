@@ -34,21 +34,5 @@ namespace Extensions.LikestCore
                 return Disposable.Create(() => subscription.Dispose());
             });
         }
-
-        public static IObservable<T> makeHot<T>(this IObservable<T> cold)
-        {
-            bool subscribed = false;
-            var subject = new Subject<T>();
-            
-            return Observable.Create<T>(o =>
-                {
-                    if (!subscribed)
-                    {
-                        cold.Subscribe(subject);
-                        subscribed = true;
-                    }
-                    return subject.Subscribe(o);
-                });
-        }
     }
 }

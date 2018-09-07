@@ -26,7 +26,9 @@ namespace LikestCore.Concrete
                 return ObservableExtensionFeatures.
                     TimerFunc(TimeSpan.FromSeconds(1), GetLoadStatus)
                     .Where(d => d.Status.ToLower() == "success")
-                    .Select(d => (d.Current, d.SlowDown));
+                    .Select(d => (d.Current, d.SlowDown))
+                    .Publish()
+                    .RefCount();
             }
         }
 
