@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LikestUtility
+namespace LoadInfoPanelModule.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для LoadInfoPanelView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoadInfoPanelView : UserControl
     {
-        public MainWindow()
+        public LoadInfoPanelView()
         {
             InitializeComponent();
         }
