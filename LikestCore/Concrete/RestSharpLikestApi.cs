@@ -25,6 +25,7 @@ namespace LikestCore.Concrete
             {
                 return ObservableExtensionFeatures.
                     TimerFunc(TimeSpan.FromSeconds(1), GetLoadStatus)
+                    .Retry()
                     .Where(d => d.Status.ToLower() == "success")
                     .Select(d => (d.Current, d.SlowDown))
                     .Publish()
