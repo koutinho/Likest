@@ -8,9 +8,9 @@
              Name="control">
     <DockPanel Margin="5" Grid.Column="0">
         <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Left" Width="2"/>
-        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Top" Height="2"/>
+        <Rectangle x:Name="topLine" Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Top" Height="2"/>
         <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Right" Width="2"/>
-        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Bottom" Height="2"/>
+        <Rectangle x:Name="bottomLine" Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Bottom" Height="2"/>
         <DockPanel LastChildFill="False">
             <TextBlock DockPanel.Dock="Left"
                        VerticalAlignment="Center"

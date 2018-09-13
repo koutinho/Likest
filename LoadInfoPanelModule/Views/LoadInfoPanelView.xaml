@@ -13,12 +13,31 @@
             <ColumnDefinition SharedSizeGroup="col1"/>
             <ColumnDefinition SharedSizeGroup="col1"/>
         </Grid.ColumnDefinitions>
-        <likest:RateControl Grid.Column="0"
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="5"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Foreground="#666d74"
+                   Text="Загрузка системы"/>
+        <Rectangle Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   Height="3"
+                   Fill="#32383e"
+                   Margin="5"/>
+        <likest:RateControl Grid.Column="0" Grid.Row="2"
                             BorderColor="#32383e"
                             FontSize="26"
                             Description="Текущая"
                             Value="{Binding CurrentLoad}"/>
-        <likest:RateControl Grid.Column="1"
+        <likest:RateControl Grid.Column="1" Grid.Row="2"
                             BorderColor="#32383e"
                             FontSize="26"
                             Description="Максимальная"

@@ -32,7 +32,7 @@ namespace LikestUtilityControls
             DependencyProperty.Register("Description", typeof(string), typeof(RateControl));
 
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(string), typeof(RateControl));
+            DependencyProperty.Register("Value", typeof(double), typeof(RateControl), new FrameworkPropertyMetadata(ValueChangedCallback));
 
         public Brush BorderColor
         {
@@ -52,12 +52,36 @@ namespace LikestUtilityControls
             }
         }
 
-        public string Value
+        public double Value
         {
-            get { return (string)GetValue(ValueProperty); }
+            get { return (double)GetValue(ValueProperty); }
             set
             {
                 SetValue(ValueProperty, value);
+            }
+        }
+
+        private static void ValueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            RateControl control = d as RateControl;
+
+            if ((double)e.OldValue == 0)
+                return;
+
+            if ((double)e.NewValue > (double)e.OldValue)
+            {
+                control.topLine.Fill = new SolidColorBrush(Colors.Green);
+                control.bottomLine.Fill = control.BorderColor;
+            }
+            else if ((double)e.NewValue < (double)e.OldValue)
+            {
+                control.bottomLine.Fill = new SolidColorBrush(Colors.Red);
+                control.topLine.Fill = control.BorderColor;
+            }
+            else
+            {
+                control.topLine.Fill = control.BorderColor;
+                control.bottomLine.Fill = control.BorderColor;
             }
         }
     }

@@ -125,6 +125,10 @@
       <Project>{6762a352-2dca-470d-9b44-aa023ac31c1f}</Project>
       <Name>LikestCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LikestUtilityControls\LikestUtilityControls.csproj">
+      <Project>{54417c84-e4db-4b89-b97c-4548dc72991d}</Project>
+      <Name>LikestUtilityControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LoadInfoPanelModule\LoadInfoPanelModule.csproj">
       <Project>{6ef389de-60d9-4d0d-b5ab-5276c265c439}</Project>
       <Name>LoadInfoPanelModule</Name>

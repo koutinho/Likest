@@ -9,12 +9,12 @@
         Title="Утилиты для сервиса Likest">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Border BorderThickness="2" BorderBrush="#32383e">
             <ContentControl prism:RegionManager.RegionName="loadInfoPanelRegion" />
