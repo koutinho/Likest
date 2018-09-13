@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="LikestUtilityControls.RateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LikestUtilityControls"
+             mc:Ignorable="d"
+             Name="control">
+    <DockPanel Margin="5" Grid.Column="0">
+        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Left" Width="2"/>
+        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Top" Height="2"/>
+        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Right" Width="2"/>
+        <Rectangle Fill="{Binding ElementName=control, Path=BorderColor}" DockPanel.Dock="Bottom" Height="2"/>
+        <DockPanel LastChildFill="False">
+            <TextBlock DockPanel.Dock="Left"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="#666d74"
+                       Margin="5"
+                       FontSize="{Binding ElementName=control, Path=FontSize}"
+                       Text="{Binding ElementName=control, Path=Description}" />
+            <TextBlock DockPanel.Dock="Right" 
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="#f6f9ff"
+                       Margin="5"
+                       FontSize="{Binding ElementName=control, Path=FontSize}"
+                       Text="{Binding ElementName=control, Path=Value}" />
+        </DockPanel>
+    </DockPanel>
+</UserControl>

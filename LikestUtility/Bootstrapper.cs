@@ -1,4 +1,6 @@
-﻿using LikestUtility.Views;
+﻿using LikestCore.Abstract;
+using LikestCore.Concrete;
+using LikestUtility.Views;
 using LoadInfoPanelModule;
 using Ninject;
 using Prism.Modularity;
@@ -29,6 +31,13 @@ namespace LikestUtility
         {
             var catalog = (ModuleCatalog)ModuleCatalog;
             catalog.AddModule(typeof(LoadInfoPanelModuleModule));
+        }
+
+        protected override void ConfigureKernel()
+        {
+            base.ConfigureKernel();
+
+            Kernel.Bind<ILikestApi>().To<RestSharpLikestApi>();
         }
     }
 }

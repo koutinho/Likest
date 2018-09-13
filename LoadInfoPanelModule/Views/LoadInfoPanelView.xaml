@@ -4,9 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LoadInfoPanelModule.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="View A" FontSize="38" />
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:likest="clr-namespace:LikestUtilityControls;assembly=LikestUtilityControls"
+             mc:Ignorable="d"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="#1f2228" Grid.IsSharedSizeScope="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="col1"/>
+            <ColumnDefinition SharedSizeGroup="col1"/>
+        </Grid.ColumnDefinitions>
+        <likest:RateControl Grid.Column="0"
+                            BorderColor="#32383e"
+                            FontSize="26"
+                            Description="Текущая"
+                            Value="{Binding CurrentLoad}"/>
+        <likest:RateControl Grid.Column="1"
+                            BorderColor="#32383e"
+                            FontSize="26"
+                            Description="Максимальная"
+                            Value="{Binding MaxLoad}"/>
     </Grid>
 </UserControl>
