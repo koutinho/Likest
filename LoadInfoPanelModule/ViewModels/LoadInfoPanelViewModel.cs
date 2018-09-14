@@ -20,16 +20,16 @@ namespace LoadInfoPanelModule.ViewModels
             var curSeq = loadSeq.Select(x => x.current).DistinctUntilChanged();
             var maxSeq = loadSeq.Select(x => x.slowdown).DistinctUntilChanged();
 
-            curSeq.Subscribe(x => CurrentLoad = x);
-            maxSeq.Subscribe(x => MaxLoad = x);
+            currentLoad = curSeq.ToProperty(this, x => x.CurrentLoad);
+            maxLoad = maxSeq.ToProperty(this, x => x.MaxLoad);
         }
 
         private ILikestApi likestApi;
 
-        [Reactive]
-        public double CurrentLoad { get; set; }
+        private readonly ObservableAsPropertyHelper<double> currentLoad;
+        public double CurrentLoad => currentLoad.Value;
 
-        [Reactive]
-        public double MaxLoad { get; set; }
+        private readonly ObservableAsPropertyHelper<double> maxLoad;
+        public double MaxLoad => maxLoad.Value;
     }
 }
